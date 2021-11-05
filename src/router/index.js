@@ -76,6 +76,18 @@ export const constantRoutes = [
       }
     ]
   },
+  {
+    path: '/test',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'test',
+        component: () => import('@/views/test/index.vue'),
+        meta: { title: 'Test', icon: 'form' }
+      }
+    ]
+  },
 
   {
     path: '/form',
