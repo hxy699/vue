@@ -54,49 +54,60 @@ export const constantRoutes = [
       meta: { title: 'Dashboard', icon: 'dashboard' }
     }]
   },
-
-  {
-    path: '/example',
-    component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'el-icon-s-help' },
-    children: [
-      {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
-      },
-      {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
-      }
-    ]
-  },
-  {
-    path: '/testform',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'testform',
-        component: () => import('@/views/testform/index.vue'),
-        meta: { title: 'Testform', icon: 'form' }
-      }
-    ]
-  },
+  // {
+  //   path: '/testform',
+  //   component: Layout,
+  //   meta: { roles: ['admin', 'editor'] },
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       name: 'testform',
+  //       component: () => import('@/views/testform/index.vue'),
+  //       meta: {
+  //         title: 'Testform',
+  //         icon: 'form',
+  //         roles: ['admin']
+  //       }
+  //     }
+  //   ]
+  // },
   {
     path: '/test',
     component: Layout,
+    redirect: '/test/page',
+    alwaysShow: true,
+    name: 'Test',
+    meta: {
+      title: 'Test',
+      icon: 'form',
+      roles: ['admin', 'editor']
+    },
     children: [
+      {
+        path: 'page',
+        component: () => import('@/views/test/page'),
+        name: 'Page',
+        meta: {
+          title: 'Page',
+          roles: ['admin']
+        }
+      },
       {
         path: 'index',
         name: 'test',
         component: () => import('@/views/test/index.vue'),
-        meta: { title: 'Test', icon: 'form' }
+        meta: {
+          title: 'Test',
+          roles: ['editor']
+        }
+      },
+      {
+        path: 'bd',
+        component: () => import('@/views/test/bd.vue'),
+        meta: {
+          title: 'Testform',
+          roles: ['admin']
+        }
       }
     ]
   },

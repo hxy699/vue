@@ -13,7 +13,6 @@
 
 <script>
 import { getTestList } from '@/api/test'
-
 import ListLayout from '@/components/ListLayout/index.vue'
 import LbTable from '@/components/lb-element-table/src/components/lb-table/lb-table.vue'
 import Conditions from './components/conditions/index.vue'
@@ -58,7 +57,9 @@ export default {
             label: '操作',
             render(_, scope) {
               return (<div>
-                <el-button>查看</el-button>
+                <el-link type='primary'>查看</el-link>|
+                <el-link type='primary'>编辑</el-link>|
+                <el-link type='primary'>删除</el-link>
               </div>
 
               )
